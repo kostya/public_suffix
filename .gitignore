@@ -1,0 +1,11 @@
+/doc/
+/lib/
+/bin/
+/.shards/
+bin_*
+*.list
+
+# Libraries don't need dependency lock
+# Dependencies will be locked in application that uses them
+/shard.lock
+*.dwarf
