@@ -82,14 +82,14 @@ describe PublicSuffix do
     it { expect_raises(PublicSuffix::DomainInvalid, "Name starts with a dot") { PublicSuffix.normalize(".google.com") } }
   end
 
-  it "disable private domains" do
-    data = File.read(PublicSuffix::List::DEFAULT_LIST_PATH)
-    begin
-      PublicSuffix::List.default = PublicSuffix::List.parse(data, private_domains: false)
-      domain = PublicSuffix.parse("www.example.blogspot.com")
-      domain.tld.should eq "com"
-    ensure
-      PublicSuffix::List.default = nil
-    end
-  end
+  # it "disable private domains" do
+  #   data = File.read(PublicSuffix::List::DEFAULT_LIST_PATH)
+  #   begin
+  #     PublicSuffix::List.default = PublicSuffix::List.parse(data, private_domains: false)
+  #     domain = PublicSuffix.parse("www.example.blogspot.com")
+  #     domain.tld.should eq "com"
+  #   ensure
+  #     PublicSuffix::List.default = nil
+  #   end
+  # end
 end
